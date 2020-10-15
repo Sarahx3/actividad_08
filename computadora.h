@@ -2,6 +2,7 @@
 #define PERSONAJE_H
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -31,11 +32,12 @@ class Computadora{
 
     friend ostream& operator <<(ostream &out, const Computadora &p)
     {
-        out<< p.nombre <<endl;
-        out<< p.os << endl;
-        out<< p.fabricante <<endl;
-        out<< p.ram <<endl;
-
+        out<< left;
+        out<< setw(10)<<p.nombre;
+        out<< setw(12)<<p.os;
+        out<< setw(12)<<p.fabricante;
+        out<< setw(5)<<p.ram;
+        cout<<endl;
         return out;
     }
 };

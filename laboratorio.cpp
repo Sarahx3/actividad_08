@@ -15,6 +15,12 @@ void Laboratorio::agregar(const Computadora &c){
 }
 
 void Laboratorio::mostrar(){
+    cout<< left;
+    cout<< setw(10)<<"Nombre";
+    cout<< setw(12)<<"OS";
+    cout<< setw(12)<<"Fabricante";
+    cout<< setw(5)<<"Ram";
+    cout<<endl;
     for (size_t i=0;i<cont;i++){
         Computadora &c= arreglo[i];
         cout << c;

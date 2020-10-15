@@ -1,6 +1,7 @@
 #ifndef LABORATORIO_H
 #define LABORATORIO_H
 
+
 #include "computadora.h"
 class Laboratorio{
     private:
