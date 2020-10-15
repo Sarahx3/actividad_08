@@ -14,12 +14,12 @@ int main(){
     compu2.setRam(16);
 
     Laboratorio lab;
-    lab.agregar(compu1);
-    lab.agregar(compu2);
+    // lab.agregar(compu1);
+    // lab.agregar(compu2);
 
     Computadora compu3;
     cin >> compu3;
-    lab.agregar(compu3);
+    lab >> compu1 >> compu2 >> compu3;
 
     lab.mostrar();
     //cout<<compu1;

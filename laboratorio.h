@@ -12,6 +12,12 @@ class Laboratorio{
 
     void agregar(const Computadora &c);
     void mostrar();
+    //INSERSION
+    friend Laboratorio& operator >>(Laboratorio &l, const Computadora &c){
+        l.agregar(c);
+        return l;
+
+    }
 
 };
 #endif
