@@ -28,6 +28,16 @@ class Computadora{
     string getOs();
     string getFabricante();
     int getRam();
+
+    friend ostream& operator <<(ostream &out, const Computadora &p)
+    {
+        out<< p.nombre <<endl;
+        out<< p.os << endl;
+        out<< p.fabricante <<endl;
+        out<< p.ram <<endl;
+
+        return out;
+    }
 };
 
 #endif

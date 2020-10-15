@@ -18,6 +18,7 @@ int main(){
     lab.agregar(compu2);
 
     lab.mostrar();
+    //cout<<compu1;
 
     return 0;
 }
