@@ -17,6 +17,10 @@ int main(){
     lab.agregar(compu1);
     lab.agregar(compu2);
 
+    Computadora compu3;
+    cin >> compu3;
+    lab.agregar(compu3);
+
     lab.mostrar();
     //cout<<compu1;
 

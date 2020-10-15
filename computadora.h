@@ -29,7 +29,7 @@ class Computadora{
     string getOs();
     string getFabricante();
     int getRam();
-
+    //MOSTRAR
     friend ostream& operator <<(ostream &out, const Computadora &p)
     {
         out<< left;
@@ -39,6 +39,21 @@ class Computadora{
         out<< setw(5)<<p.ram;
         cout<<endl;
         return out;
+    }
+
+    //AGREGAR
+    friend istream& operator >>(istream &in, Computadora &c){
+
+        cout<<"Nombre: ";
+        getline(cin, c.nombre);
+        cout<<"Sistema operativo: ";
+        getline(cin, c.os);
+        cout<<"Fabricante: ";
+        getline(cin, c.fabricante);
+        cout<<"Ram: ";
+        cin>> c.ram;
+
+        return in;
     }
 };
 
