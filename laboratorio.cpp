@@ -30,3 +30,34 @@ void Laboratorio::mostrar(){
         // cout<<"Ram: "<<c.getRam()<<endl;
     }
 }
+
+void Laboratorio::respaldar_tabla(){
+    ofstream archivo ("compus_tabla.txt");
+    if (archivo.is_open()){
+        archivo<< left;
+        archivo<< setw(10)<<"Nombre";
+        archivo<< setw(12)<<"OS";
+        archivo<< setw(12)<<"Fabricante";
+        archivo<< setw(5)<<"Ram";
+        archivo<<endl;
+        for (size_t i=0;i<cont;i++){
+        Computadora &c= arreglo[i];
+        archivo << c<<endl; //se van metiendo en el archivo
+        }
+    }
+    archivo.close();
+}
+
+void Laboratorio::respaldar(){
+    ofstream archivo ("compus.txt");
+    if (archivo.is_open()){
+        for (size_t i=0;i<cont;i++){
+        Computadora &c= arreglo[i];
+        archivo << c.getNombre()<<endl;
+        archivo << c.getOs()<<endl;
+        archivo << c.getFabricante()<<endl;
+        archivo << c.getRam()<<endl; //se van metiendo en el archivo
+        }
+    }
+    archivo.close();
+}

@@ -22,6 +22,9 @@ int main(){
     lab >> compu1 >> compu2 >> compu3;
 
     lab.mostrar();
+    lab.respaldar_tabla();
+    lab.respaldar();//linea por linea
+
     //cout<<compu1;
 
     return 0;

@@ -1,7 +1,7 @@
 #ifndef LABORATORIO_H
 #define LABORATORIO_H
 
-
+#include <fstream>
 #include "computadora.h"
 class Laboratorio{
     private:
@@ -12,6 +12,9 @@ class Laboratorio{
 
     void agregar(const Computadora &c);
     void mostrar();
+    void respaldar_tabla();
+    void respaldar();
+
     //INSERSION
     friend Laboratorio& operator >>(Laboratorio &l, const Computadora &c){
         l.agregar(c);
