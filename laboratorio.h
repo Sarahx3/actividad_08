@@ -14,6 +14,7 @@ class Laboratorio{
     void mostrar();
     void respaldar_tabla();
     void respaldar();
+    void recuperar();
 
     //INSERSION
     friend Laboratorio& operator >>(Laboratorio &l, const Computadora &c){

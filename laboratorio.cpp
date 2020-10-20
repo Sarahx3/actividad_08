@@ -42,7 +42,7 @@ void Laboratorio::respaldar_tabla(){
         archivo<<endl;
         for (size_t i=0;i<cont;i++){
         Computadora &c= arreglo[i];
-        archivo << c<<endl; //se van metiendo en el archivo
+        archivo << c<<endl; //se van metiendo en el archivo 1 por 1
         }
     }
     archivo.close();
@@ -56,7 +56,37 @@ void Laboratorio::respaldar(){
         archivo << c.getNombre()<<endl;
         archivo << c.getOs()<<endl;
         archivo << c.getFabricante()<<endl;
-        archivo << c.getRam()<<endl; //se van metiendo en el archivo
+        archivo << c.getRam()<<endl; //se van metiendo en el archivo atributo por atributo
+        }
+    }
+    archivo.close();
+}
+
+void Laboratorio::recuperar(){
+    ifstream archivo ("compus.txt");
+    if(archivo.is_open()){
+        string temp;
+        int ram;
+        Computadora c;
+        while (true){
+            getline(archivo,temp);//nombre
+            if (archivo.eof()){
+                break;
+            }
+            c.setNombre(temp);
+
+            getline(archivo,temp);//sistema operativo
+            c.setOs(temp);
+
+            getline(archivo,temp);//fabricante
+            c.setFabricante(temp);
+
+            getline(archivo,temp);//ram
+            ram = stoi(temp);//string-to-int
+            c.setRam(ram);
+
+            agregar(c);
+             
         }
     }
     archivo.close();
