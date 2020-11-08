@@ -6,29 +6,109 @@ using namespace std;
 
 int main(){
     Laboratorio lab;
-    lab.recuperar();
-    lab.mostrar();
+    string op;
+    while (true)
+    {
+        cout << "1) Agregar Personaje" << endl;
+        cout << "2) Mostrar" << endl;
+        cout << "3) Respaldar" << endl;
+        cout << "4) Recuperar" << endl;
+        cout << "5) Insertar" << endl;
+        cout << "6) Inicializar" << endl;
+        cout << "7) Eliminar" << endl;
+        cout << "8) Ordenar" << endl;
+        cout << "9) Eliminar Ultimo" << endl;
+        cout << "10) Buscar" << endl;
+        cout << "0) Salir" << endl;
+        cout << "Opcion: ";
+        getline(cin, op);
 
-    // Computadora compu1=Computadora("X571G","Windows 10","AsusTec",8);
-    // Computadora compu2;
-    // compu2.setNombre("X100G");
-    // compu2.setOs("Linux");
-    // compu2.setFabricante("AsusTec");
-    // compu2.setRam(16);
+        if (op == "1") {
+            Computadora c;
 
-    // Laboratorio lab;
-    // // lab.agregar(compu1);
-    // // lab.agregar(compu2);
+            cin >> c;
 
-    // Computadora compu3;
-    // cin >> compu3;
-    // lab >> compu1 >> compu2 >> compu3;
+            lab.agregar(c); 
+            cin.ignore();
+        } 
+        else if (op == "2") {
+            lab.mostrar();
+        }
+        else if (op == "3") {
+            lab.respaldar();
+        }
+        else if (op == "4") {
+            lab.recuperar();
+        }
 
-    // lab.mostrar();
-    // lab.respaldar_tabla();
-    // lab.respaldar();//linea por linea
+        else if (op == "5") {
+            Computadora c;
+            cin >> c;
 
-    //cout<<compu1;
+            size_t pos;
+            cout<< "Posicion: ";
+            cin >> pos; cin.ignore();
+
+            if( pos >= lab.size()){
+                cout<<"Posicion no valida"<<endl;
+            }
+            else{
+                lab.insertar(c,pos);
+            }
+
+        }
+
+        else if (op == "6") {
+            Computadora c;
+            cin >> c;
+
+            size_t n;
+            cout<< "n: ";
+            cin >> n; cin.ignore();
+
+            lab.inicializar(c, n);
+        }
+
+        else if (op == "7") {  
+            size_t pos;
+            cout<< "Posicion: ";
+            cin >> pos; cin.ignore();
+
+            if( pos >= lab.size()){
+                cout<<"Posicion no valida"<<endl;
+            }
+            else{
+                lab.eliminar(pos);
+            }
+        }
+
+        else if (op == "8") {
+            lab.ordenar();
+        }
+
+        else if (op == "9"){
+            lab.eliminarUltimo();
+        }
+
+        else if (op == "10"){
+            Computadora c;
+            cin >> c; cin.ignore();
+
+            Computadora *ptr = lab.buscar(c);
+
+            if(ptr ==nullptr){
+                cout << "no se encontro"<< endl;
+            }
+            else{
+                cout<< *ptr << endl;
+            }
+
+        }
+        else if (op == "0"){
+            break;
+        }
+
+    }
 
     return 0;
 }

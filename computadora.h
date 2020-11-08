@@ -1,5 +1,5 @@
 #ifndef COMPUTADORA_H
-#define PERSONAJE_H
+#define COMPUTADORA_H
 
 #include <iostream>
 #include <iomanip>
@@ -54,6 +54,24 @@ class Computadora{
         cin>> c.ram;
 
         return in;
+    }
+
+    bool operator==(const Computadora& c)
+    {
+        return os == c.os;
+    }
+    bool operator==(const Computadora& c) const
+    {
+        return os == c.os;
+    }
+
+    bool operator<(const Computadora& c)
+    {
+        return nombre < c.nombre;
+    }
+    bool operator<(const Computadora& c) const
+    {
+        return nombre < c.nombre;
     }
 };
 

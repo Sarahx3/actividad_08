@@ -1,18 +1,11 @@
 #include "laboratorio.h"
 
 Laboratorio::Laboratorio(){
-    cont=0;
 }
 
 void Laboratorio::agregar(const Computadora &c){
-    if(cont<5){
-        arreglo[cont]=c;
-        cont++;
+    compus.push_back(c);
     }
-    else{
-        cout<<"arreglo lleno"<<endl;
-    }
-}
 
 void Laboratorio::mostrar(){
     cout<< left;
@@ -21,8 +14,8 @@ void Laboratorio::mostrar(){
     cout<< setw(12)<<"Fabricante";
     cout<< setw(5)<<"Ram";
     cout<<endl;
-    for (size_t i=0;i<cont;i++){
-        Computadora &c= arreglo[i];
+    for (size_t i = 0;i < compus.size(); i++){
+        Computadora &c= compus[i];
         cout << c;
         // cout<<"Nombre del equipo: "<<c.getNombre()<<endl;
         // cout<<"Sistema Operativo: "<<c.getOs()<<endl;
@@ -40,8 +33,8 @@ void Laboratorio::respaldar_tabla(){
         archivo<< setw(12)<<"Fabricante";
         archivo<< setw(5)<<"Ram";
         archivo<<endl;
-        for (size_t i=0;i<cont;i++){
-        Computadora &c= arreglo[i];
+        for (size_t i = 0; i < compus.size(); i++){
+        Computadora &c= compus[i];
         archivo << c<<endl; //se van metiendo en el archivo 1 por 1
         }
     }
@@ -51,8 +44,8 @@ void Laboratorio::respaldar_tabla(){
 void Laboratorio::respaldar(){
     ofstream archivo ("compus.txt");
     if (archivo.is_open()){
-        for (size_t i=0;i<cont;i++){
-        Computadora &c= arreglo[i];
+        for (size_t i=0;i < compus.size(); i++){
+        Computadora &c= compus[i];
         archivo << c.getNombre()<<endl;
         archivo << c.getOs()<<endl;
         archivo << c.getFabricante()<<endl;
@@ -90,4 +83,40 @@ void Laboratorio::recuperar(){
         }
     }
     archivo.close();
+}
+
+void Laboratorio::insertar(const Computadora &c, size_t pos){
+    compus.insert(compus.begin()+pos, c);
+}
+
+size_t Laboratorio::size(){
+    return compus.size();
+}
+
+void Laboratorio::inicializar(const Computadora &c, size_t n){
+    compus = vector<Computadora>(n,c);
+}
+
+void Laboratorio::eliminar(size_t pos){
+    compus.erase(compus.begin()+pos);
+}
+
+void Laboratorio::eliminarUltimo(){
+    compus.pop_back();
+}
+
+void Laboratorio::ordenar(){
+    sort(compus.begin(),compus.end());
+}
+
+Computadora* Laboratorio::buscar(const Computadora &c){
+    // vector<Computadora>::iteraror en vez de auto
+    auto it = find(compus.begin(),compus.end(),c);
+
+    if(it == compus.end()){
+        return nullptr;
+    }
+    else{
+        return &(*it);
+    }
 }

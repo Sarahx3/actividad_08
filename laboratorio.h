@@ -2,11 +2,15 @@
 #define LABORATORIO_H
 
 #include <fstream>
+#include <vector>
+#include <algorithm>
+
 #include "computadora.h"
+
 class Laboratorio{
     private:
-    Computadora arreglo[5];
-    size_t cont;
+    vector<Computadora> compus;
+
     public:
     Laboratorio();
 
@@ -15,6 +19,15 @@ class Laboratorio{
     void respaldar_tabla();
     void respaldar();
     void recuperar();
+
+    void insertar(const Computadora &c, size_t pos);
+    size_t size();
+    void inicializar(const Computadora &c, size_t n);
+    void eliminar(size_t pos);
+    void eliminarUltimo();
+    void ordenar();
+
+    Computadora* buscar(const Computadora &c);
 
     //INSERSION
     friend Laboratorio& operator >>(Laboratorio &l, const Computadora &c){
