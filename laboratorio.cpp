@@ -109,6 +109,24 @@ void Laboratorio::ordenar(){
     sort(compus.begin(),compus.end());
 }
 
+void Laboratorio::ordenarNombre(){
+    sort(compus.begin(),compus.end(), 
+    [](Computadora c1, Computadora c2)
+    {return c1.getNombre() < c2.getNombre();});//fucion lamba
+}
+
+void Laboratorio::ordenarOs(){
+    sort(compus.begin(),compus.end(), 
+    [](Computadora c1, Computadora c2)
+    {return c1.getOs() < c2.getOs();});//fucion lamba
+}
+
+void Laboratorio::ordenarFabricante(){
+    sort(compus.begin(),compus.end(), 
+    [](Computadora c1, Computadora c2)
+    {return c1.getFabricante() < c2.getFabricante();});//fucion lamba
+}
+
 Computadora* Laboratorio::buscar(const Computadora &c){
     // vector<Computadora>::iteraror en vez de auto
     auto it = find(compus.begin(),compus.end(),c);

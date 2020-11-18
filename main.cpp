@@ -19,6 +19,9 @@ int main(){
         cout << "8) Ordenar" << endl;
         cout << "9) Eliminar Ultimo" << endl;
         cout << "10) Buscar" << endl;
+        cout << "11) Ordenar nombre" << endl;
+        cout << "12) Ordenar sistema operativo" << endl;
+        cout << "13) Ordenar fabricante" << endl;
         cout << "0) Salir" << endl;
         cout << "Opcion: ";
         getline(cin, op);
@@ -103,6 +106,18 @@ int main(){
                 cout<< *ptr << endl;
             }
 
+        }
+
+        else if(op == "11"){
+            lab.ordenarNombre();
+        }
+
+        else if(op == "12"){
+            lab.ordenarOs();
+        }
+
+        else if(op == "13"){
+            lab.ordenarFabricante();
         }
         else if (op == "0"){
             break;

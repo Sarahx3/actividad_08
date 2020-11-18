@@ -26,6 +26,9 @@ class Laboratorio{
     void eliminar(size_t pos);
     void eliminarUltimo();
     void ordenar();
+    void ordenarNombre();
+    void ordenarOs();
+    void ordenarFabricante();
 
     Computadora* buscar(const Computadora &c);
 
